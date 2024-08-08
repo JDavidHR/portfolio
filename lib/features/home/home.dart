@@ -334,7 +334,7 @@ class _HomeState extends State<Home> {
             TagWidget(label: "Linux"),
             TagWidget(label: "PHP"),
             TagWidget(label: "JS"),
-            TagWidget(label: "Html"),
+            TagWidget(label: "HTML"),
             TagWidget(label: "Docker"),
             TagWidget(label: "Flutter"),
             TagWidget(label: "Figma"),

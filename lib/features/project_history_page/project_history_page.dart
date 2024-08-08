@@ -65,10 +65,13 @@ class _ProjectHistoryPageState extends State<ProjectHistoryPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
-                    width: 16,
+                    height: 24,
+                    width: 24,
                   ),
-                  _buildProjectList(),
+                  SizedBox(
+                    width: 900,
+                    child: _buildProjectList(),
+                  ),
                 ],
               ),
             ),
@@ -140,194 +143,196 @@ class _ProjectHistoryPageState extends State<ProjectHistoryPage> {
   }
 
   Widget _buildProjectList() {
-    return Wrap(
-      spacing: 24,
-      runSpacing: 24,
-      children: [
-        /// Proyecto #1.
-        SizedBox(
-          width: 400,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Nombre: Gestión Biblioteca",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
+    return Center(
+      child: Wrap(
+        spacing: 44,
+        runSpacing: 44,
+        children: [
+          /// Proyecto #1.
+          SizedBox(
+            width: 400,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Nombre: Gestión Biblioteca",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const Row(
-                children: [
-                  Text(
-                    maxLines: 2,
-                    "Etiquetas: ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                const Row(
+                  children: [
+                    Text(
+                      maxLines: 2,
+                      "Etiquetas: ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  TagWidget(label: "PHP"),
-                  TagWidget(label: "CSS"),
-                  TagWidget(label: "JS"),
-                  TagWidget(label: "HTML"),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text(
-                    "Link del proyecto:",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                    TagWidget(label: "PHP"),
+                    TagWidget(label: "CSS"),
+                    TagWidget(label: "JS"),
+                    TagWidget(label: "HTML"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      "Link del proyecto:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: _launchBiblioteca,
-                    icon: const Icon(Icons.link_rounded),
-                  ),
-                ],
-              ),
-            ],
+                    IconButton(
+                      onPressed: _launchBiblioteca,
+                      icon: const Icon(Icons.link_rounded),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
 
-        /// Proyecto #2.
-        SizedBox(
-          width: 400,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Nombre: Control asistencia estudiantil",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
+          /// Proyecto #2.
+          SizedBox(
+            width: 400,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Nombre: Control asistencia estudiantil",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const Row(
-                children: [
-                  Text(
-                    maxLines: 2,
-                    "Etiquetas: ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                const Row(
+                  children: [
+                    Text(
+                      maxLines: 2,
+                      "Etiquetas: ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  TagWidget(label: "PHP"),
-                  TagWidget(label: "CSS"),
-                  TagWidget(label: "JS"),
-                  TagWidget(label: "HTML"),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text(
-                    "Link del proyecto:",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                    TagWidget(label: "PHP"),
+                    TagWidget(label: "CSS"),
+                    TagWidget(label: "JS"),
+                    TagWidget(label: "HTML"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      "Link del proyecto:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: _launchControlAsistencia,
-                    icon: const Icon(Icons.link_rounded),
-                  ),
-                ],
-              ),
-            ],
+                    IconButton(
+                      onPressed: _launchControlAsistencia,
+                      icon: const Icon(Icons.link_rounded),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
 
-        /// Proyecto #3.
-        SizedBox(
-          width: 400,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Nombre: Clone Spotify",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
+          /// Proyecto #3.
+          SizedBox(
+            width: 400,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Nombre: Clone Spotify",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const Row(
-                children: [
-                  Text(
-                    maxLines: 2,
-                    "Etiquetas: ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                const Row(
+                  children: [
+                    Text(
+                      maxLines: 2,
+                      "Etiquetas: ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  TagWidget(label: "C++"),
-                  TagWidget(label: "Dart"),
-                  TagWidget(label: "HTML"),
-                  TagWidget(label: "Flutter"),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text(
-                    "Link del proyecto:",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                    TagWidget(label: "C++"),
+                    TagWidget(label: "Dart"),
+                    TagWidget(label: "HTML"),
+                    TagWidget(label: "Flutter"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      "Link del proyecto:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: _launchCloneSpotify,
-                    icon: const Icon(Icons.link_rounded),
-                  ),
-                ],
-              ),
-            ],
+                    IconButton(
+                      onPressed: _launchCloneSpotify,
+                      icon: const Icon(Icons.link_rounded),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
 
-        /// Proyecto #4.
-        SizedBox(
-          width: 400,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Nombre: CRUD básico con mongo DB",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
+          /// Proyecto #4.
+          SizedBox(
+            width: 400,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Nombre: CRUD básico con mongo DB",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const Row(
-                children: [
-                  Text(
-                    maxLines: 2,
-                    "Etiquetas: ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                const Row(
+                  children: [
+                    Text(
+                      maxLines: 2,
+                      "Etiquetas: ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  TagWidget(label: "C++"),
-                  TagWidget(label: "Dart"),
-                  TagWidget(label: "HTML"),
-                  TagWidget(label: "Flutter"),
-                ],
-              ),
-              Row(
-                children: [
-                  const Text(
-                    "Link del proyecto:",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                    TagWidget(label: "C++"),
+                    TagWidget(label: "Dart"),
+                    TagWidget(label: "HTML"),
+                    TagWidget(label: "Flutter"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      "Link del proyecto:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: _launchCrudBasico,
-                    icon: const Icon(Icons.link_rounded),
-                  ),
-                ],
-              ),
-            ],
+                    IconButton(
+                      onPressed: _launchCrudBasico,
+                      icon: const Icon(Icons.link_rounded),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
