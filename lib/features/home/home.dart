@@ -340,6 +340,8 @@ class _HomeState extends State<Home> {
             TagWidget(label: "Figma"),
             TagWidget(label: "Ilustrator"),
             TagWidget(label: "Photoshop"),
+            TagWidget(label: "Github"),
+            TagWidget(label: "Git"),
           ],
         ),
       ],
