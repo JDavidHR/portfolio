@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio1/features/core/components/card_preview_widget.dart';
 import 'package:portfolio1/features/core/components/tag_widget.dart';
 import 'package:portfolio1/features/core/constants/colors.dart';
-import 'package:portfolio1/features/project_history_page/project_history_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -51,79 +52,87 @@ class _HomeState extends State<Home> {
                 horizontal: 24,
                 vertical: 24,
               ),
-              child: Wrap(
-                spacing: 24,
-                runSpacing: 24,
+              child: Column(
                 children: [
-                  _buildLeft(),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 46),
-                    child: _buildRight(),
+                  Wrap(
+                    spacing: 24,
+                    runSpacing: 24,
+                    children: [
+                      _buildLeft(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 46),
+                        child: _buildRight(),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 24,
+                    width: 24,
+                  ),
+                  const Divider(),
+                  const SizedBox(
+                    height: 24,
+                    width: 24,
+                  ),
+
+                  /// Proyectos Listado.
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Proyectos de",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        "Github",
+                        style: TextStyle(
+                          color: AppColors.secondaryColorText,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 24,
+                    width: 24,
+                  ),
+                  SizedBox(
+                    width: 900,
+                    child: _buildProjectList(),
                   ),
                 ],
               ),
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColors.secondaryBackground,
-          focusColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ProjectHistoryPage(),
-              ),
-            );
-          },
-          tooltip: "Proyectos",
-          child: const Icon(
-            Icons.inventory_2_outlined,
-            color: Colors.black,
-          ),
-        ),
-        bottomNavigationBar: const BottomAppBar(
-          color: Colors.transparent,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.email_outlined,
-                        size: 18,
-                      ),
-                      SizedBox(width: 4),
-                      Text(
-                        "Email: jdhr123@hotmail.com",
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: 16),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.phone_outlined,
-                        size: 18,
-                      ),
-                      SizedBox(width: 4),
-                      Text(
-                        "+57 310 491 2677",
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+        bottomNavigationBar: const SizedBox(
+          height: 45,
+          child: BottomAppBar(
+            color: Colors.transparent,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.email_outlined,
+                      size: 18,
+                    ),
+                    SizedBox(width: 4),
+                    Text(
+                      "Email: david.software.developer.contact@gmail.com",
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -241,14 +250,14 @@ class _HomeState extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Empresa: Fluwin",
+              "Empresa: Fluwin S.A.S",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
             Text(
-              maxLines: 2,
-              "Cargo: Desarrollador en lenguaje Dart (Android / IOS / Web / Windows / Linux)",
+              maxLines: 10,
+              "Cargo: Desarrollador en lenguaje Dart (Android, iOS, Web, Windows, Linux). Mi rol principal consistió en gestionar tanto el frontend como el backend de las aplicaciones, proporcionando actualizaciones constantes y realizando mejoras para mantenerlas al día con las tecnologías más recientes.",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
@@ -284,7 +293,7 @@ class _HomeState extends State<Home> {
             ),
             Text(
               maxLines: 2,
-              "Cargo: Diseñador Gráfico (independiente)",
+              "Cargo: Diseñador Gráfico (Independiente). Colaboraba en diversos proyectos del negocio, creando diseños para prendas y desarrollando logotipos personalizados.",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
@@ -297,11 +306,6 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-        SizedBox(
-          height: 16,
-          width: 16,
-        ),
-        Divider(),
       ],
     );
   }
@@ -342,9 +346,251 @@ class _HomeState extends State<Home> {
             TagWidget(label: "Photoshop"),
             TagWidget(label: "Github"),
             TagWidget(label: "Git"),
+            TagWidget(label: "Mongo DB"),
+            TagWidget(label: "SQL"),
           ],
         ),
       ],
     );
+  }
+
+  Widget _buildProjectList() {
+    return Wrap(
+      spacing: 44,
+      runSpacing: 44,
+      children: [
+        /// Proyecto #1.
+        SizedBox(
+          width: 400,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Nombre: Gestión Biblioteca",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Row(
+                children: [
+                  Text(
+                    maxLines: 2,
+                    "Etiquetas: ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  TagWidget(label: "PHP"),
+                  TagWidget(label: "CSS"),
+                  TagWidget(label: "JS"),
+                  TagWidget(label: "HTML"),
+                ],
+              ),
+              Row(
+                children: [
+                  const Text(
+                    "Link del proyecto:",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: _launchBiblioteca,
+                    icon: const Icon(Icons.link_rounded),
+                  ),
+                ],
+              ),
+              const ImagePreviewWidget(
+                imageUrl: 'https://via.placeholder.com/300',
+              ),
+            ],
+          ),
+        ),
+
+        /// Proyecto #2.
+        SizedBox(
+          width: 400,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Nombre: Control asistencia estudiantil",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Row(
+                children: [
+                  Text(
+                    maxLines: 2,
+                    "Etiquetas: ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  TagWidget(label: "PHP"),
+                  TagWidget(label: "CSS"),
+                  TagWidget(label: "JS"),
+                  TagWidget(label: "HTML"),
+                ],
+              ),
+              Row(
+                children: [
+                  const Text(
+                    "Link del proyecto:",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: _launchControlAsistencia,
+                    icon: const Icon(Icons.link_rounded),
+                  ),
+                ],
+              ),
+              const ImagePreviewWidget(
+                imageUrl: 'https://via.placeholder.com/300',
+              ),
+            ],
+          ),
+        ),
+
+        /// Proyecto #3.
+        SizedBox(
+          width: 400,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Nombre: Clone Spotify",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Row(
+                children: [
+                  Text(
+                    maxLines: 2,
+                    "Etiquetas: ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  TagWidget(label: "C++"),
+                  TagWidget(label: "Dart"),
+                  TagWidget(label: "HTML"),
+                  TagWidget(label: "Flutter"),
+                ],
+              ),
+              Row(
+                children: [
+                  const Text(
+                    "Link del proyecto:",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: _launchCloneSpotify,
+                    icon: const Icon(Icons.link_rounded),
+                  ),
+                ],
+              ),
+              const ImagePreviewWidget(
+                imageUrl: 'https://via.placeholder.com/300',
+              ),
+            ],
+          ),
+        ),
+
+        /// Proyecto #4.
+        SizedBox(
+          width: 400,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Nombre: CRUD básico con mongo DB",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Row(
+                children: [
+                  Text(
+                    maxLines: 2,
+                    "Etiquetas: ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  TagWidget(label: "C++"),
+                  TagWidget(label: "Dart"),
+                  TagWidget(label: "HTML"),
+                  TagWidget(label: "Flutter"),
+                ],
+              ),
+              Row(
+                children: [
+                  const Text(
+                    "Link del proyecto:",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: _launchCrudBasico,
+                    icon: const Icon(Icons.link_rounded),
+                  ),
+                ],
+              ),
+              const ImagePreviewWidget(
+                imageUrl: 'https://via.placeholder.com/300',
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _launchBiblioteca() async {
+    const url = 'https://www.ejemplo.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'No se pudo abrir el enlace $url';
+    }
+  }
+
+  void _launchControlAsistencia() async {
+    const url = 'https://www.ejemplo.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'No se pudo abrir el enlace $url';
+    }
+  }
+
+  void _launchCloneSpotify() async {
+    const url = 'https://www.ejemplo.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'No se pudo abrir el enlace $url';
+    }
+  }
+
+  void _launchCrudBasico() async {
+    const url = 'https://www.ejemplo.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'No se pudo abrir el enlace $url';
+    }
   }
 }
