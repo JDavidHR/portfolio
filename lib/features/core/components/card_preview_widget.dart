@@ -4,8 +4,11 @@ class ImagePreviewWidget extends StatelessWidget {
   final String imageUrl;
   final String? description;
 
-  const ImagePreviewWidget(
-      {super.key, required this.imageUrl, this.description});
+  const ImagePreviewWidget({
+    super.key,
+    required this.imageUrl,
+    this.description,
+  });
 
   @override
   Widget build(BuildContext context) {

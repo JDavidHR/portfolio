@@ -7,7 +7,7 @@ class ContainerBoxWidget extends StatefulWidget {
   final double? size;
   final List<Widget> listTag;
   final String labelLinkProject;
-  final String linkPreview;
+  final String? linkPreview;
   final IconData? icon;
   const ContainerBoxWidget({
     super.key,
@@ -15,7 +15,7 @@ class ContainerBoxWidget extends StatefulWidget {
     required this.title,
     required this.listTag,
     required this.labelLinkProject,
-    required this.linkPreview,
+    this.linkPreview,
     this.size,
     this.icon,
   });
@@ -65,9 +65,10 @@ class _ContainerBoxWidgetState extends State<ContainerBoxWidget> {
                 ),
               ],
             ),
-            ImagePreviewWidget(
-              imageUrl: widget.linkPreview,
-            ),
+            if (widget.linkPreview != null)
+              ImagePreviewWidget(
+                imageUrl: widget.linkPreview ?? "https://placehold.co/300",
+              ),
           ],
         ),
       ),

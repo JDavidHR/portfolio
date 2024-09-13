@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio1/features/core/components/container_box_widget.dart';
 import 'package:portfolio1/features/core/components/tag_widget.dart';
 import 'package:portfolio1/features/core/constants/colors.dart';
+import 'package:portfolio1/features/core/constants/text.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -32,11 +33,11 @@ class _HomeState extends State<Home> {
           title: const Row(
             children: [
               Text(
-                "Portafoli",
+                AppDefaultText.portafoli,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Text(
-                "o",
+                AppDefaultText.letterO,
                 style: TextStyle(
                   color: AppColors.secondaryColorText,
                   fontWeight: FontWeight.bold,
@@ -83,7 +84,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Proyectos de",
+                        AppDefaultText.projectsOf,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
@@ -91,7 +92,7 @@ class _HomeState extends State<Home> {
                       ),
                       SizedBox(width: 8),
                       Text(
-                        "Github",
+                        AppDefaultText.github,
                         style: TextStyle(
                           color: AppColors.secondaryColorText,
                           fontWeight: FontWeight.bold,
@@ -131,7 +132,7 @@ class _HomeState extends State<Home> {
                     ),
                     const SizedBox(width: 4),
                     const Text(
-                      "david.software.developer.contact@gmail.com",
+                      AppDefaultText.email,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(width: 8),
@@ -154,7 +155,7 @@ class _HomeState extends State<Home> {
                           ),
                           SizedBox(width: 4),
                           Text(
-                            "Linkedin",
+                            AppDefaultText.linkedin,
                             style: TextStyle(fontWeight: FontWeight.w600),
                           ),
                         ],
@@ -180,7 +181,7 @@ class _HomeState extends State<Home> {
                           ),
                           SizedBox(width: 4),
                           Text(
-                            "Github",
+                            AppDefaultText.github,
                             style: TextStyle(fontWeight: FontWeight.w600),
                           ),
                         ],
@@ -206,7 +207,7 @@ class _HomeState extends State<Home> {
           const Row(
             children: [
               Text(
-                "Acerca de",
+                AppDefaultText.about,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
@@ -217,7 +218,7 @@ class _HomeState extends State<Home> {
                 height: 8,
               ),
               Text(
-                "Mí",
+                AppDefaultText.me,
                 style: TextStyle(
                   color: AppColors.secondaryColorText,
                   fontWeight: FontWeight.bold,
@@ -230,14 +231,14 @@ class _HomeState extends State<Home> {
 
           /// Sobre mi.
           const Text(
-            "Soy Juan David Hoyos, diseñador gráfico, técnico, tecnólogo e ingeniero de sistemas de Cartago, Valle del Cauca.",
+            AppDefaultText.descriptionAboutMyParagraphOne,
             style: TextStyle(
               fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),
           const Text(
-            "Soy un profesional enfocado con excelentes habilidades en sistemas y diseño. Poseo 2 años y 4 meses de experiencia en el ámbito de sistemas y 1 año en diseño gráfico. Soy competente en el trabajo en equipo y en la escritura de código en PHP, JavaScript, CSS, HTML y Dart.",
+            AppDefaultText.descriptionAboutMyParagraphTwo,
             style: TextStyle(
               fontWeight: FontWeight.w600,
             ),
@@ -290,7 +291,7 @@ class _HomeState extends State<Home> {
       children: [
         /// Experiencia Listado.
         Text(
-          "Experiencia",
+          AppDefaultText.experience,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
@@ -307,20 +308,20 @@ class _HomeState extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Empresa: Fluwin S.A.S",
+              AppDefaultText.firstCompanyName,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
             Text(
               maxLines: 10,
-              "Cargo: Desarrollador en lenguaje Dart (Android, iOS, Web, Windows, Linux). Mi rol principal consistió en gestionar tanto el frontend como el backend de las aplicaciones, proporcionando actualizaciones constantes y realizando mejoras para mantenerlas al día con las tecnologías más recientes.",
+              AppDefaultText.firstCompanyCharge,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
             Text(
-              "Tiempo: 2 años 4 meses",
+              AppDefaultText.firstCompanyTime,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
@@ -343,20 +344,20 @@ class _HomeState extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Empresa: Nyce Customs",
+              AppDefaultText.secondCompanyName,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
             Text(
               maxLines: 10,
-              "Cargo: Diseñador Gráfico (Independiente). Colaboraba en diversos proyectos del negocio, creando diseños para prendas y desarrollando logotipos personalizados.",
+              AppDefaultText.secondCompanyCharge,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
             Text(
-              "Tiempo: 1 año",
+              AppDefaultText.secondCompanyTime,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
@@ -374,7 +375,7 @@ class _HomeState extends State<Home> {
       children: [
         /// Habilidades.
         Text(
-          "¿Qué habilidad tengo?",
+          AppDefaultText.whatSkillDoIHave,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
@@ -388,23 +389,23 @@ class _HomeState extends State<Home> {
           spacing: 4,
           runSpacing: 4,
           children: [
-            TagWidget(label: "Android"),
-            TagWidget(label: "IOS"),
-            TagWidget(label: "Web"),
-            TagWidget(label: "Windows"),
-            TagWidget(label: "Linux"),
-            TagWidget(label: "PHP"),
-            TagWidget(label: "JS"),
-            TagWidget(label: "HTML"),
-            TagWidget(label: "Docker"),
-            TagWidget(label: "Flutter"),
-            TagWidget(label: "Figma"),
-            TagWidget(label: "Ilustrator"),
-            TagWidget(label: "Photoshop"),
-            TagWidget(label: "Github"),
-            TagWidget(label: "Git"),
-            TagWidget(label: "Mongo DB"),
-            TagWidget(label: "SQL"),
+            TagWidget(label: AppDefaultText.skill1),
+            TagWidget(label: AppDefaultText.skill2),
+            TagWidget(label: AppDefaultText.skill3),
+            TagWidget(label: AppDefaultText.skill4),
+            TagWidget(label: AppDefaultText.skill5),
+            TagWidget(label: AppDefaultText.skill6),
+            TagWidget(label: AppDefaultText.skill7),
+            TagWidget(label: AppDefaultText.skill8),
+            TagWidget(label: AppDefaultText.skill9),
+            TagWidget(label: AppDefaultText.skill10),
+            TagWidget(label: AppDefaultText.skill11),
+            TagWidget(label: AppDefaultText.skill12),
+            TagWidget(label: AppDefaultText.skill13),
+            TagWidget(label: AppDefaultText.skill14),
+            TagWidget(label: AppDefaultText.skill15),
+            TagWidget(label: AppDefaultText.skill16),
+            TagWidget(label: AppDefaultText.skill17),
           ],
         ),
       ],
@@ -420,93 +421,89 @@ class _HomeState extends State<Home> {
       children: [
         /// Proyecto #1.
         ContainerBoxWidget(
-          title: "Nombre: Gestión Biblioteca",
+          title: AppDefaultText.firstProjectName,
           listTag: const [
             Text(
               maxLines: 2,
-              "Etiquetas: ",
+              AppDefaultText.tags,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
-            TagWidget(label: "PHP"),
-            TagWidget(label: "CSS"),
-            TagWidget(label: "JS"),
-            TagWidget(label: "HTML"),
+            TagWidget(label: AppDefaultText.skill6),
+            TagWidget(label: AppDefaultText.skill21),
+            TagWidget(label: AppDefaultText.skill7),
+            TagWidget(label: AppDefaultText.skill8),
           ],
-          labelLinkProject: "Link del proyecto:",
-          linkPreview: 'https://via.placeholder.com/300',
+          labelLinkProject: AppDefaultText.projectLink,
           onPressed: _launchBiblioteca,
         ),
 
         /// Proyecto #2.
         ContainerBoxWidget(
-          title: "Nombre: Control asistencia estudiantil",
+          title: AppDefaultText.secondProjectName,
           listTag: const [
             Text(
               maxLines: 2,
-              "Etiquetas: ",
+              AppDefaultText.tags,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
-            TagWidget(label: "PHP"),
-            TagWidget(label: "CSS"),
-            TagWidget(label: "JS"),
-            TagWidget(label: "HTML"),
+            TagWidget(label: AppDefaultText.skill6),
+            TagWidget(label: AppDefaultText.skill21),
+            TagWidget(label: AppDefaultText.skill7),
+            TagWidget(label: AppDefaultText.skill8),
           ],
-          labelLinkProject: "Link del proyecto:",
-          linkPreview: "https://via.placeholder.com/300",
+          labelLinkProject: AppDefaultText.projectLink,
           onPressed: _launchControlAsistencia,
         ),
 
         /// Proyecto #3.
         ContainerBoxWidget(
           size: 342,
-          title: "Nombre: Clone Spotify",
+          title: AppDefaultText.thirdProjectName,
           listTag: const [
             Text(
               maxLines: 2,
-              "Etiquetas: ",
+              AppDefaultText.tags,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
-            TagWidget(label: "C++"),
-            TagWidget(label: "Dart"),
-            TagWidget(label: "Flutter/Dart"),
+            TagWidget(label: AppDefaultText.skill19),
+            TagWidget(label: AppDefaultText.skill18),
+            TagWidget(label: AppDefaultText.skill20),
           ],
-          labelLinkProject: "Link del proyecto:",
-          linkPreview: "https://via.placeholder.com/300",
+          labelLinkProject: AppDefaultText.projectLink,
           onPressed: _launchCloneSpotify,
         ),
 
         /// Proyecto #4.
         ContainerBoxWidget(
           size: 342,
-          title: "Nombre: CRUD básico con mongo DB",
+          title: AppDefaultText.fourthProjectName,
           listTag: const [
             Text(
               maxLines: 2,
-              "Etiquetas: ",
+              AppDefaultText.tags,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
-            TagWidget(label: "C++"),
-            TagWidget(label: "Dart"),
-            TagWidget(label: "Flutter/Dart"),
+            TagWidget(label: AppDefaultText.skill19),
+            TagWidget(label: AppDefaultText.skill18),
+            TagWidget(label: AppDefaultText.skill20),
           ],
-          labelLinkProject: "Link del proyecto:",
-          linkPreview: "https://via.placeholder.com/300",
-          onPressed: _launchCrudBasico,
+          labelLinkProject: AppDefaultText.projectLink,
+          onPressed: _launchCrudBasic,
         ),
       ],
     );
   }
 
   void _launchBiblioteca() async {
-    const url = 'https://www.ejemplo.com';
+    const url = '';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -515,7 +512,7 @@ class _HomeState extends State<Home> {
   }
 
   void _launchControlAsistencia() async {
-    const url = 'https://www.ejemplo.com';
+    const url = '';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -524,7 +521,7 @@ class _HomeState extends State<Home> {
   }
 
   void _launchCloneSpotify() async {
-    const url = 'https://www.ejemplo.com';
+    const url = '';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -532,8 +529,8 @@ class _HomeState extends State<Home> {
     }
   }
 
-  void _launchCrudBasico() async {
-    const url = 'https://www.ejemplo.com';
+  void _launchCrudBasic() async {
+    const url = '';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
