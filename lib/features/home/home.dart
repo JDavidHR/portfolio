@@ -63,10 +63,12 @@ class _HomeState extends State<Home> {
                     runSpacing: 24,
                     children: [
                       _buildLeft(),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 46),
-                        child: _buildRight(),
-                      ),
+                      shouldShowImage(context)
+                          ? Padding(
+                              padding: const EdgeInsets.only(top: 46),
+                              child: _buildRight(),
+                            )
+                          : const SizedBox.shrink(),
                     ],
                   ),
                   const SizedBox(
@@ -555,5 +557,9 @@ class _HomeState extends State<Home> {
     } else {
       throw 'No se pudo abrir el enlace $url';
     }
+  }
+
+  bool shouldShowImage(BuildContext context) {
+    return MediaQuery.of(context).size.width >= 1000;
   }
 }
