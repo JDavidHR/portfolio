@@ -1,14 +1,14 @@
-# Juan David Hoyos Ramirez - Ingeniero de Sistemas y Desarrollador Full Stack
+# Portafolio
 
 ¡Hola! Soy **David**, un apasionado desarrollador full stack con experiencia en el desarrollo de aplicaciones móviles y web usando **Flutter/Dart**. Tengo un fuerte enfoque en la creación de soluciones escalables y amigables para el usuario, con experiencia tanto en frontend como en backend, así como en SaaS y el diseño gráfico.
 
-¡Hola! soy **Juan David Hoyos**, diseñador gráfico, técnico, tecnólogo e ingeniero de sistemas de Cartago, Valle del Cauca, Colombia.
+¡Hola! soy **Juan David Hoyos Ramirez**, diseñador gráfico, técnico, tecnólogo e ingeniero de sistemas de Cartago, Valle del Cauca, Colombia.
 
 Soy un profesional enfocado con excelentes habilidades en sistemas y diseño. Poseo 2 años y 4 meses de experiencia en el ámbito de sistemas y 1 año en diseño gráfico. Soy competente en el trabajo en equipo y en la escritura de código en **PHP**, **JavaScript**, **CSS**, **HTML** y **Dart**.
 
 ## 🚀 Sobre Mí
 
-- 🎓 **Título**: Ingeniero de Sistemas
+- 🎓 **Título**: Técnico, tecnólogo e Ingeniero de Sistemas
 - 💻 **Experiencia**: Desarrollador full stack con más de [2] años y [4] meses de experiencia.
 
 ## 🛠️ Habilidades
