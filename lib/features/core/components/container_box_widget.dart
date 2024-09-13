@@ -41,6 +41,7 @@ class _ContainerBoxWidgetState extends State<ContainerBoxWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               widget.title,
@@ -49,6 +50,7 @@ class _ContainerBoxWidgetState extends State<ContainerBoxWidget> {
               ),
             ),
             Row(
+              mainAxisSize: MainAxisSize.min,
               children: widget.listTag,
             ),
             Row(

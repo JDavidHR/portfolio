@@ -117,80 +117,120 @@ class _HomeState extends State<Home> {
           ),
         ),
         bottomNavigationBar: SizedBox(
-          height: 45,
+          height: shouldShowImage(context) ? 30 : 50,
           child: BottomAppBar(
             color: Colors.transparent,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
+            child: Wrap(
+              spacing: 4,
+              runSpacing: 4,
+              alignment: WrapAlignment.center,
+              runAlignment: WrapAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.email_outlined,
-                      size: 18,
-                    ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      AppDefaultText.email,
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(width: 8),
-                    OutlinedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStateProperty.all(Colors.transparent),
-                        side: WidgetStateProperty.all(
-                          const BorderSide(color: Colors.transparent),
-                        ),
-                        overlayColor:
-                            WidgetStateProperty.all(Colors.transparent),
-                      ),
-                      onPressed: _launchLinkedin,
-                      child: const Row(
+                shouldShowImage(context)
+                    ? const Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(
-                            Icons.link_outlined,
+                            Icons.email_outlined,
                             size: 18,
                           ),
                           SizedBox(width: 4),
-                          Text(
-                            AppDefaultText.linkedin,
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                          Flexible(
+                            child: Tooltip(
+                              triggerMode: TooltipTriggerMode.tap,
+                              message: AppDefaultText.email,
+                              child: Text(
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                AppDefaultText.email,
+                                style: TextStyle(fontWeight: FontWeight.w600),
+                              ),
+                            ),
                           ),
                         ],
+                      )
+                    : const SizedBox.shrink(),
+                SizedBox(
+                  width: 77,
+                  height: 20,
+                  child: OutlinedButton(
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                        EdgeInsets.zero,
                       ),
+                      backgroundColor:
+                          WidgetStateProperty.all(Colors.transparent),
+                      side: WidgetStateProperty.all(
+                        const BorderSide(color: Colors.transparent),
+                      ),
+                      overlayColor: WidgetStateProperty.all(Colors.transparent),
                     ),
-                    const SizedBox(width: 8),
-                    OutlinedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStateProperty.all(Colors.transparent),
-                        side: WidgetStateProperty.all(
-                          const BorderSide(color: Colors.transparent),
+                    onPressed: _launchLinkedin,
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.link_outlined,
+                          size: 18,
                         ),
-                        overlayColor:
-                            WidgetStateProperty.all(Colors.transparent),
-                      ),
-                      onPressed: _launchGithub,
-                      child: const Row(
-                        children: [
-                          Icon(
-                            Icons.link_outlined,
-                            size: 18,
-                          ),
-                          SizedBox(width: 4),
-                          Text(
-                            AppDefaultText.github,
-                            style: TextStyle(fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
+                        SizedBox(width: 4),
+                        Text(
+                          AppDefaultText.linkedin,
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
+                SizedBox(
+                  width: 66,
+                  height: 20,
+                  child: OutlinedButton(
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                          EdgeInsets.zero),
+                      backgroundColor:
+                          WidgetStateProperty.all(Colors.transparent),
+                      side: WidgetStateProperty.all(
+                        const BorderSide(color: Colors.transparent),
+                      ),
+                      overlayColor: WidgetStateProperty.all(Colors.transparent),
+                    ),
+                    onPressed: _launchGithub,
+                    child: const Row(
+                      children: [
+                        Icon(
+                          Icons.link_outlined,
+                          size: 18,
+                        ),
+                        SizedBox(width: 4),
+                        Text(
+                          AppDefaultText.github,
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                shouldShowImage(context)
+                    ? const SizedBox.shrink()
+                    : const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Flexible(
+                            child: Tooltip(
+                              triggerMode: TooltipTriggerMode.tap,
+                              message: AppDefaultText.email,
+                              child: Text(
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                AppDefaultText.email,
+                                style: TextStyle(fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
               ],
             ),
           ),
@@ -425,17 +465,27 @@ class _HomeState extends State<Home> {
         ContainerBoxWidget(
           title: AppDefaultText.firstProjectName,
           listTag: const [
-            Text(
-              maxLines: 2,
-              AppDefaultText.tags,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  maxLines: 2,
+                  AppDefaultText.tags,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Row(
+                  children: [
+                    TagWidget(label: AppDefaultText.skill6),
+                    TagWidget(label: AppDefaultText.skill21),
+                    TagWidget(label: AppDefaultText.skill7),
+                    TagWidget(label: AppDefaultText.skill8),
+                  ],
+                ),
+              ],
             ),
-            TagWidget(label: AppDefaultText.skill6),
-            TagWidget(label: AppDefaultText.skill21),
-            TagWidget(label: AppDefaultText.skill7),
-            TagWidget(label: AppDefaultText.skill8),
           ],
           labelLinkProject: AppDefaultText.projectLink,
           onPressed: _launchBiblioteca,
@@ -445,17 +495,27 @@ class _HomeState extends State<Home> {
         ContainerBoxWidget(
           title: AppDefaultText.secondProjectName,
           listTag: const [
-            Text(
-              maxLines: 2,
-              AppDefaultText.tags,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  maxLines: 2,
+                  AppDefaultText.tags,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Row(
+                  children: [
+                    TagWidget(label: AppDefaultText.skill6),
+                    TagWidget(label: AppDefaultText.skill21),
+                    TagWidget(label: AppDefaultText.skill7),
+                    TagWidget(label: AppDefaultText.skill8),
+                  ],
+                ),
+              ],
             ),
-            TagWidget(label: AppDefaultText.skill6),
-            TagWidget(label: AppDefaultText.skill21),
-            TagWidget(label: AppDefaultText.skill7),
-            TagWidget(label: AppDefaultText.skill8),
           ],
           labelLinkProject: AppDefaultText.projectLink,
           onPressed: _launchControlAsistencia,
@@ -466,16 +526,26 @@ class _HomeState extends State<Home> {
           size: 342,
           title: AppDefaultText.thirdProjectName,
           listTag: const [
-            Text(
-              maxLines: 2,
-              AppDefaultText.tags,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  maxLines: 2,
+                  AppDefaultText.tags,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Row(
+                  children: [
+                    TagWidget(label: AppDefaultText.skill19),
+                    TagWidget(label: AppDefaultText.skill18),
+                    TagWidget(label: AppDefaultText.skill20),
+                  ],
+                ),
+              ],
             ),
-            TagWidget(label: AppDefaultText.skill19),
-            TagWidget(label: AppDefaultText.skill18),
-            TagWidget(label: AppDefaultText.skill20),
           ],
           labelLinkProject: AppDefaultText.projectLink,
           onPressed: _launchCloneSpotify,
@@ -486,16 +556,26 @@ class _HomeState extends State<Home> {
           size: 342,
           title: AppDefaultText.fourthProjectName,
           listTag: const [
-            Text(
-              maxLines: 2,
-              AppDefaultText.tags,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  maxLines: 2,
+                  AppDefaultText.tags,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Row(
+                  children: [
+                    TagWidget(label: AppDefaultText.skill19),
+                    TagWidget(label: AppDefaultText.skill18),
+                    TagWidget(label: AppDefaultText.skill20),
+                  ],
+                ),
+              ],
             ),
-            TagWidget(label: AppDefaultText.skill19),
-            TagWidget(label: AppDefaultText.skill18),
-            TagWidget(label: AppDefaultText.skill20),
           ],
           labelLinkProject: AppDefaultText.projectLink,
           onPressed: _launchCrudBasic,
