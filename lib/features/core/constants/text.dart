@@ -18,6 +18,7 @@ class AppDefaultText {
   ///
   static const String email = "david.software.developer.contact@gmail.com";
   static const String linkedin = "Linkedin";
+  static const String gmail = "Gmail";
 
   /// Descriptions.
   ///
@@ -53,7 +54,7 @@ class AppDefaultText {
   static const String skill9 = "Docker";
   static const String skill10 = "Flutter";
   static const String skill11 = "Figma";
-  static const String skill12 = "Ilustrator";
+  static const String skill12 = "Illustrator";
   static const String skill13 = "Photoshop";
   static const String skill14 = "Github";
   static const String skill15 = "Git";

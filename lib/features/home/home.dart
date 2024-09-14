@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio1/features/core/components/button_widget.dart';
 import 'package:portfolio1/features/core/components/container_box_widget.dart';
 import 'package:portfolio1/features/core/components/tag_widget.dart';
 import 'package:portfolio1/features/core/constants/colors.dart';
 import 'package:portfolio1/features/core/constants/text.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio1/features/home/functions/functions.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -121,120 +122,43 @@ class _HomeState extends State<Home> {
           ),
         ),
         bottomNavigationBar: SizedBox(
-          height: shouldShowImage(context) ? 30 : 50,
-          child: BottomAppBar(
+          height: shouldShowImage(context) ? 30 : 40,
+          child: const BottomAppBar(
             color: Colors.transparent,
             child: Wrap(
-              spacing: 4,
-              runSpacing: 4,
+              spacing: 8,
+              runSpacing: 8,
               alignment: WrapAlignment.center,
               runAlignment: WrapAlignment.center,
               children: [
-                shouldShowImage(context)
-                    ? const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.email_outlined,
-                            size: 18,
-                          ),
-                          SizedBox(width: 4),
-                          Flexible(
-                            child: Tooltip(
-                              triggerMode: TooltipTriggerMode.tap,
-                              message: AppDefaultText.email,
-                              child: Text(
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                AppDefaultText.email,
-                                style: TextStyle(fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    : const SizedBox.shrink(),
+                /// Linkedin.
                 SizedBox(
                   width: 77,
                   height: 20,
-                  child: OutlinedButton(
-                    style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                        EdgeInsets.zero,
-                      ),
-                      backgroundColor:
-                          WidgetStateProperty.all(Colors.transparent),
-                      side: WidgetStateProperty.all(
-                        const BorderSide(color: Colors.transparent),
-                      ),
-                      overlayColor: WidgetStateProperty.all(Colors.transparent),
-                    ),
-                    onPressed: _launchLinkedin,
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.link_outlined,
-                          size: 18,
-                        ),
-                        SizedBox(width: 4),
-                        Text(
-                          AppDefaultText.linkedin,
-                          style: TextStyle(fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
+                  child: ButtonWidget(
+                    label: AppDefaultText.linkedin,
+                    onPressed: launchLinkedin,
                   ),
                 ),
+
+                /// Github.
                 SizedBox(
                   width: 66,
                   height: 20,
-                  child: OutlinedButton(
-                    style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                          EdgeInsets.zero),
-                      backgroundColor:
-                          WidgetStateProperty.all(Colors.transparent),
-                      side: WidgetStateProperty.all(
-                        const BorderSide(color: Colors.transparent),
-                      ),
-                      overlayColor: WidgetStateProperty.all(Colors.transparent),
-                    ),
-                    onPressed: _launchGithub,
-                    child: const Row(
-                      children: [
-                        Icon(
-                          Icons.link_outlined,
-                          size: 18,
-                        ),
-                        SizedBox(width: 4),
-                        Text(
-                          AppDefaultText.github,
-                          style: TextStyle(fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
+                  child: ButtonWidget(
+                    label: AppDefaultText.github,
+                    onPressed: launchGithub,
                   ),
                 ),
-                shouldShowImage(context)
-                    ? const SizedBox.shrink()
-                    : const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Flexible(
-                            child: Tooltip(
-                              triggerMode: TooltipTriggerMode.tap,
-                              message: AppDefaultText.email,
-                              child: Text(
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                                AppDefaultText.email,
-                                style: TextStyle(fontWeight: FontWeight.w300),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
+                // Gmail.
+                SizedBox(
+                  width: 66,
+                  height: 20,
+                  child: ButtonWidget(
+                    label: AppDefaultText.gmail,
+                    onPressed: sendEmail,
+                  ),
+                ),
               ],
             ),
           ),
@@ -460,7 +384,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildProjectList() {
-    return Wrap(
+    return const Wrap(
       runSpacing: 24,
       spacing: 24,
       alignment: WrapAlignment.center,
@@ -470,7 +394,7 @@ class _HomeState extends State<Home> {
         ContainerBoxWidget(
           title: AppDefaultText.firstProjectName,
           description: AppDefaultText.firstProjectDescription,
-          listTag: const [
+          listTag: [
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -495,14 +419,14 @@ class _HomeState extends State<Home> {
           ],
           labelLinkProject: AppDefaultText.projectLink,
           //linkPreview: "lib/assets/images/placeholder_300.png",
-          onPressed: _launchBiblioteca,
+          onPressed: launchBiblioteca,
         ),
 
         /// Proyecto #2.
         ContainerBoxWidget(
           title: AppDefaultText.secondProjectName,
           description: AppDefaultText.secondProjectDescription,
-          listTag: const [
+          listTag: [
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -527,44 +451,14 @@ class _HomeState extends State<Home> {
           ],
           labelLinkProject: AppDefaultText.projectLink,
           //linkPreview: "lib/assets/images/placeholder_300.png",
-          onPressed: _launchControlAsistencia,
+          onPressed: launchControlAsistencia,
         ),
-
-        /// Proyecto #3.
-        // ContainerBoxWidget(
-        //   title: AppDefaultText.thirdProjectName,
-        //   listTag: const [
-        //     Column(
-        //       mainAxisSize: MainAxisSize.min,
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //       children: [
-        //         Text(
-        //           maxLines: 2,
-        //           AppDefaultText.tags,
-        //           style: TextStyle(
-        //             fontWeight: FontWeight.w600,
-        //           ),
-        //         ),
-        //         Row(
-        //           children: [
-        //             TagWidget(label: AppDefaultText.skill19),
-        //             TagWidget(label: AppDefaultText.skill18),
-        //             TagWidget(label: AppDefaultText.skill20),
-        //           ],
-        //         ),
-        //       ],
-        //     ),
-        //   ],
-        //   labelLinkProject: AppDefaultText.projectLink,
-        //   linkPreview: "lib/assets/images/placeholder_300.png",
-        //   onPressed: _launchCloneSpotify,
-        // ),
 
         /// Proyecto #4.
         ContainerBoxWidget(
           title: AppDefaultText.fourthProjectName,
           description: AppDefaultText.fourthProjectDescription,
-          listTag: const [
+          listTag: [
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -578,8 +472,7 @@ class _HomeState extends State<Home> {
                 ),
                 Row(
                   children: [
-                    TagWidget(label: AppDefaultText.skill19),
-                    TagWidget(label: AppDefaultText.skill18),
+                    TagWidget(label: AppDefaultText.skill16),
                     TagWidget(label: AppDefaultText.skill20),
                   ],
                 ),
@@ -588,14 +481,14 @@ class _HomeState extends State<Home> {
           ],
           labelLinkProject: AppDefaultText.projectLink,
           //linkPreview: "lib/assets/images/placeholder_300.png",
-          onPressed: _launchCrudBasic,
+          onPressed: launchCrudBasic,
         ),
 
         /// Proyecto #5.
         ContainerBoxWidget(
           title: AppDefaultText.fifthProjectName,
           description: AppDefaultText.fifthProjectDescription,
-          listTag: const [
+          listTag: [
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -609,8 +502,6 @@ class _HomeState extends State<Home> {
                 ),
                 Row(
                   children: [
-                    TagWidget(label: AppDefaultText.skill19),
-                    TagWidget(label: AppDefaultText.skill18),
                     TagWidget(label: AppDefaultText.skill20),
                   ],
                 ),
@@ -619,77 +510,9 @@ class _HomeState extends State<Home> {
           ],
           labelLinkProject: AppDefaultText.projectLink,
           //linkPreview: "lib/assets/images/placeholder_300.png",
-          onPressed: _launchPorfolio,
+          onPressed: launchPorfolio,
         ),
       ],
     );
-  }
-
-  void _launchBiblioteca() async {
-    const url = 'https://github.com/JDavidHR/Biblioteca';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'No se pudo abrir el enlace $url';
-    }
-  }
-
-  void _launchControlAsistencia() async {
-    const url = 'https://github.com/JDavidHR/tesis';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'No se pudo abrir el enlace $url';
-    }
-  }
-
-  void _launchCloneSpotify() async {
-    const url = '';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'No se pudo abrir el enlace $url';
-    }
-  }
-
-  void _launchCrudBasic() async {
-    const url = 'https://github.com/JDavidHR/flutter_projects';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'No se pudo abrir el enlace $url';
-    }
-  }
-
-  void _launchPorfolio() async {
-    const url = 'https://github.com/JDavidHR/portfolio/';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'No se pudo abrir el enlace $url';
-    }
-  }
-
-  void _launchLinkedin() async {
-    const url =
-        'https://www.linkedin.com/in/juan-david-hoyos-ramirez-233043318/';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'No se pudo abrir el enlace $url';
-    }
-  }
-
-  void _launchGithub() async {
-    const url = 'https://github.com/JDavidHR/';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'No se pudo abrir el enlace $url';
-    }
-  }
-
-  bool shouldShowImage(BuildContext context) {
-    return MediaQuery.of(context).size.width >= 1000;
   }
 }
