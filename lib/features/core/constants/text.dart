@@ -91,6 +91,14 @@ class AppDefaultText {
   static const String fourthPreviewLink = "https://placehold.co/300";
   static const String fourthProjectDescription =
       "Descripción: El proyecto implementa un CRUD básico utilizando MongoDB, junto con la creación y configuración de widgets personalizados para una mejor organización de la estructura de archivos. Permite consultar, registrar y modificar usuarios.";
+
+  /// Fifth.
+  ///
+  static const String fifthProjectName =
+      "Nombre: Estructura del portafolio (portafolio actual)";
+  static const String fifthPreviewLink = "https://placehold.co/300";
+  static const String fifthProjectDescription =
+      "Descripción: El proyecto implementa widgets personalizados junto con una estructura de código organizada para mejorar la legibilidad tanto del código como de los archivos. Además, se presenta una versión responsive para adaptarse a diferentes dispositivos.";
 }
 
 extension DefaultTextExtension on BuildContext {
