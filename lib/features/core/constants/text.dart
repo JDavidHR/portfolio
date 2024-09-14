@@ -22,7 +22,7 @@ class AppDefaultText {
   /// Descriptions.
   ///
   static const String descriptionAboutMyParagraphOne =
-      "Soy Juan David Hoyos, diseñador gráfico, técnico, tecnólogo e ingeniero de sistemas de Cartago, Valle del Cauca.";
+      "Soy Juan David Hoyos Ramirez, diseñador gráfico, técnico, tecnólogo e ingeniero de sistemas de Cartago, Valle del Cauca.";
   static const String descriptionAboutMyParagraphTwo =
       "Soy un profesional enfocado con excelentes habilidades en sistemas y diseño. Poseo 2 años y 4 meses de experiencia en el ámbito de sistemas y 1 año en diseño gráfico. Soy competente en el trabajo en equipo y en la escritura de código en PHP, JavaScript, CSS, HTML y Dart.";
 
