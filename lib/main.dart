@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio1/features/home/home.dart';
+import 'package:portfolio1/splash/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const SafeArea(
-        child: Home(),
+        child: Splash(),
       ),
     );
   }
