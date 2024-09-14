@@ -30,13 +30,17 @@ class _HomeState extends State<Home> {
           surfaceTintColor: Colors.transparent,
           backgroundColor: AppColors.background,
           elevation: 0,
-          title: const Row(
+          title: Row(
             children: [
-              Text(
+              shouldShowImage(context)
+                  ? const SizedBox.shrink()
+                  : _buildRight(40),
+              const SizedBox(width: 8),
+              const Text(
                 AppDefaultText.portafoli,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text(
+              const Text(
                 AppDefaultText.letterO,
                 style: TextStyle(
                   color: AppColors.secondaryColorText,
@@ -296,9 +300,10 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _buildRight() {
+  Widget _buildRight([double? size]) {
     return SizedBox(
-      width: 310,
+      width: size ?? 310,
+      height: size,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: Image.asset(
@@ -488,6 +493,7 @@ class _HomeState extends State<Home> {
             ),
           ],
           labelLinkProject: AppDefaultText.projectLink,
+          linkPreview: "lib/assets/images/placeholder_300.png",
           onPressed: _launchBiblioteca,
         ),
 
@@ -518,42 +524,42 @@ class _HomeState extends State<Home> {
             ),
           ],
           labelLinkProject: AppDefaultText.projectLink,
+          linkPreview: "lib/assets/images/placeholder_300.png",
           onPressed: _launchControlAsistencia,
         ),
 
         /// Proyecto #3.
-        ContainerBoxWidget(
-          size: 342,
-          title: AppDefaultText.thirdProjectName,
-          listTag: const [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  maxLines: 2,
-                  AppDefaultText.tags,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Row(
-                  children: [
-                    TagWidget(label: AppDefaultText.skill19),
-                    TagWidget(label: AppDefaultText.skill18),
-                    TagWidget(label: AppDefaultText.skill20),
-                  ],
-                ),
-              ],
-            ),
-          ],
-          labelLinkProject: AppDefaultText.projectLink,
-          onPressed: _launchCloneSpotify,
-        ),
+        // ContainerBoxWidget(
+        //   title: AppDefaultText.thirdProjectName,
+        //   listTag: const [
+        //     Column(
+        //       mainAxisSize: MainAxisSize.min,
+        //       crossAxisAlignment: CrossAxisAlignment.start,
+        //       children: [
+        //         Text(
+        //           maxLines: 2,
+        //           AppDefaultText.tags,
+        //           style: TextStyle(
+        //             fontWeight: FontWeight.w600,
+        //           ),
+        //         ),
+        //         Row(
+        //           children: [
+        //             TagWidget(label: AppDefaultText.skill19),
+        //             TagWidget(label: AppDefaultText.skill18),
+        //             TagWidget(label: AppDefaultText.skill20),
+        //           ],
+        //         ),
+        //       ],
+        //     ),
+        //   ],
+        //   labelLinkProject: AppDefaultText.projectLink,
+        //   linkPreview: "lib/assets/images/placeholder_300.png",
+        //   onPressed: _launchCloneSpotify,
+        // ),
 
         /// Proyecto #4.
         ContainerBoxWidget(
-          size: 342,
           title: AppDefaultText.fourthProjectName,
           listTag: const [
             Column(
@@ -578,6 +584,7 @@ class _HomeState extends State<Home> {
             ),
           ],
           labelLinkProject: AppDefaultText.projectLink,
+          linkPreview: "lib/assets/images/placeholder_300.png",
           onPressed: _launchCrudBasic,
         ),
       ],
@@ -585,7 +592,7 @@ class _HomeState extends State<Home> {
   }
 
   void _launchBiblioteca() async {
-    const url = '';
+    const url = 'https://github.com/JDavidHR/Biblioteca';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -594,7 +601,7 @@ class _HomeState extends State<Home> {
   }
 
   void _launchControlAsistencia() async {
-    const url = '';
+    const url = 'https://github.com/JDavidHR/tesis';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -612,7 +619,7 @@ class _HomeState extends State<Home> {
   }
 
   void _launchCrudBasic() async {
-    const url = '';
+    const url = 'https://github.com/JDavidHR/flutter_projects/';
     if (await canLaunch(url)) {
       await launch(url);
     } else {

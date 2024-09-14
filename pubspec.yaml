@@ -27,6 +27,7 @@ flutter:
     - lib/features/core/constants/fonts.dart
     - lib/features/core/constants/colors.dart
     - lib/assets/images/user_profile.jpg
+    - lib/assets/images/placeholder_300.png
 
   # fonts:
   #   - family: Roboto

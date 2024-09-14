@@ -73,8 +73,7 @@ class AppDefaultText {
 
   /// Second.
   ///
-  static const String secondProjectName = "Nombre: Gestión Biblioteca";
-
+  static const String secondProjectName = "Nombre: Control de asistencia";
   static const String secondPreviewLink = "https://placehold.co/300";
 
   /// Third.
