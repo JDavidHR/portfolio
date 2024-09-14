@@ -653,7 +653,7 @@ class _HomeState extends State<Home> {
   }
 
   void _launchCrudBasic() async {
-    const url = 'https://github.com/JDavidHR/portfolio';
+    const url = 'https://github.com/JDavidHR/flutter_projects';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
