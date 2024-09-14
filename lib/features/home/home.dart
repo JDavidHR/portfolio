@@ -469,6 +469,7 @@ class _HomeState extends State<Home> {
         /// Proyecto #1.
         ContainerBoxWidget(
           title: AppDefaultText.firstProjectName,
+          description: AppDefaultText.firstProjectDescription,
           listTag: const [
             Column(
               mainAxisSize: MainAxisSize.min,
@@ -493,13 +494,14 @@ class _HomeState extends State<Home> {
             ),
           ],
           labelLinkProject: AppDefaultText.projectLink,
-          linkPreview: "lib/assets/images/placeholder_300.png",
+          //linkPreview: "lib/assets/images/placeholder_300.png",
           onPressed: _launchBiblioteca,
         ),
 
         /// Proyecto #2.
         ContainerBoxWidget(
           title: AppDefaultText.secondProjectName,
+          description: AppDefaultText.secondProjectDescription,
           listTag: const [
             Column(
               mainAxisSize: MainAxisSize.min,
@@ -524,7 +526,7 @@ class _HomeState extends State<Home> {
             ),
           ],
           labelLinkProject: AppDefaultText.projectLink,
-          linkPreview: "lib/assets/images/placeholder_300.png",
+          //linkPreview: "lib/assets/images/placeholder_300.png",
           onPressed: _launchControlAsistencia,
         ),
 
@@ -561,6 +563,7 @@ class _HomeState extends State<Home> {
         /// Proyecto #4.
         ContainerBoxWidget(
           title: AppDefaultText.fourthProjectName,
+          description: AppDefaultText.fourthProjectDescription,
           listTag: const [
             Column(
               mainAxisSize: MainAxisSize.min,
@@ -584,7 +587,7 @@ class _HomeState extends State<Home> {
             ),
           ],
           labelLinkProject: AppDefaultText.projectLink,
-          linkPreview: "lib/assets/images/placeholder_300.png",
+          //linkPreview: "lib/assets/images/placeholder_300.png",
           onPressed: _launchCrudBasic,
         ),
       ],

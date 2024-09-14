@@ -70,11 +70,15 @@ class AppDefaultText {
   ///
   static const String firstProjectName = "Nombre: Gestión Biblioteca";
   static const String firstPreviewLink = "https://placehold.co/300";
+  static const String firstProjectDescription =
+      "Descripción: El proyecto se centra en la gestión de libros para una biblioteca, permitiendo generar reportes en formatos Excel y PDF, además de enviar correos electrónicos a través de mailto. También incluye un CRUD básico que permite agregar, modificar y asignar libros a los clientes, todo respaldado con una base de datos MySQL.";
 
   /// Second.
   ///
   static const String secondProjectName = "Nombre: Control de asistencia";
   static const String secondPreviewLink = "https://placehold.co/300";
+  static const String secondProjectDescription =
+      "Descripción: El objetivo principal es gestionar el control de asistencia y los horarios de estudiantes y docentes en una institución, además de asignar tareas a los docentes. Incluye la generación de reportes y un CRUD básico para agregar, eliminar y modificar estudiantes, docentes y materias. También gestiona roles, con vistas específicas habilitadas para estudiantes, docentes y administradores.";
 
   /// Third.
   ///
@@ -85,6 +89,8 @@ class AppDefaultText {
   ///
   static const String fourthProjectName = "Nombre: CRUD básico con mongo DB";
   static const String fourthPreviewLink = "https://placehold.co/300";
+  static const String fourthProjectDescription =
+      "Descripción: El proyecto implementa un CRUD básico utilizando MongoDB, junto con la creación y configuración de widgets personalizados para una mejor organización de la estructura de archivos. Permite consultar, registrar y modificar usuarios.";
 }
 
 extension DefaultTextExtension on BuildContext {

@@ -4,6 +4,7 @@ import 'package:portfolio1/features/core/components/card_preview_widget.dart';
 class ContainerBoxWidget extends StatefulWidget {
   final void Function()? onPressed;
   final String title;
+  final String description;
   final double? size;
   final List<Widget> listTag;
   final String labelLinkProject;
@@ -13,6 +14,7 @@ class ContainerBoxWidget extends StatefulWidget {
     super.key,
     this.onPressed,
     required this.title,
+    required this.description,
     required this.listTag,
     required this.labelLinkProject,
     this.linkPreview,
@@ -52,6 +54,12 @@ class _ContainerBoxWidgetState extends State<ContainerBoxWidget> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: widget.listTag,
+            ),
+            Text(
+              widget.description,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
             ),
             Row(
               children: [
